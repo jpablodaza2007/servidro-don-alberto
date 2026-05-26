@@ -35,6 +35,11 @@ def agregar_peritaje():
 
     datos = request.json
 
+    datos = request.json()
+    for clave in datos:
+        if isinstance(datos[clave], str):
+            datos[clave] = datos[clave].upper()
+
     with open(ARCHIVO, "r") as f:
         peritajes = json.load(f)
 
