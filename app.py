@@ -82,8 +82,7 @@ def eliminar_peritaje(placa):
         "moto_removida": moto_eliminada
     })
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)@app.route('/api/inventario')
+@app.route('/api/inventario')
 def inventario():
     return jsonify({
         "repuestos": [
@@ -93,5 +92,9 @@ def inventario():
             "Bateria"
         ]
     })
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)@app.route('/api/inventario')
+
 
 
