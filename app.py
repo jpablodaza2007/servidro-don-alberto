@@ -34,8 +34,6 @@ def registros():
 def agregar_peritaje():
 
     datos = request.json
-
-    datos = request.json()
     for clave in datos:
         if isinstance(datos[clave], str):
             datos[clave] = datos[clave].upper()
@@ -85,4 +83,15 @@ def eliminar_peritaje(placa):
     })
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000)@app.route('/api/inventario')
+def inventario():
+    return jsonify({
+        "repuestos": [
+            "Aceite",
+            "Pastillas de freno",
+            "Llantas",
+            "Bateria"
+        ]
+    })
+
+
