@@ -28,7 +28,6 @@ if not os.path.exists(ARCHIVO):
 
 @app.route('/api/registros', methods=['GET'])
 def registros():
-    x = 1 / 0
     return jsonify(inventario)
 
 @app.route('/api/peritajes', methods=['POST'])
