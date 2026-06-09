@@ -97,3 +97,5 @@ def inventario_api():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
+"Hola, soy el servidor de Don Alberto. Estoy listo para recibir tus solicitudes."
