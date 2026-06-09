@@ -83,7 +83,7 @@ def eliminar_peritaje(placa):
     })
 
 @app.route('/api/inventario')
-def inventario():
+def inventario_api():
     return jsonify({
         "repuestos": [
             "Aceite",
