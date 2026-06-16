@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-ARCHIVO = "/var/www/html/peritajes.json"
+ARCHIVO = os.path.join(os.path.dirname(__file__), "peritajes.json")
 
 inventario = {
     "servidor": "Servidor-Daza",
@@ -94,7 +94,7 @@ def inventario_api():
     })
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)@app.route('/api/inventario')
+    app.run(host='0.0.0.0', port=5000)
 
 
 
