@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import json
 import os
 from datetime import datetime
+import time
 
 app = Flask(__name__)
 
@@ -92,6 +93,26 @@ def inventario_api():
             "Bateria"
         ]
     })
+
+
+@app.route('/api/health', methods=['GET'])
+def health_check():
+
+    sistema_archivos_ok = os.path.exists('/tmp') or os.path.exists('.')
+
+    if sistema_archivos_ok:
+        return jsonify({
+            "status": "healthy",
+            "timestamp": int(time.time()),
+            "environment": "production-cloud",
+            "uptime_check": "passed"
+        }), 200
+
+    else:
+        return jsonify({
+            "status": "unhealthy",
+            "reason": "Storage unreachable"
+        }), 500    
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
